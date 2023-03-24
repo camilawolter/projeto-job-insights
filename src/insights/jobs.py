@@ -11,7 +11,6 @@ def read(path: str) -> List[Dict]:
         jobs_list = []
         for job in jobs_reader:
             jobs_list.append(job)
-            
         return jobs_list
 
 
