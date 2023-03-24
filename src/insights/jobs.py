@@ -11,25 +11,19 @@ def read(path: str) -> List[Dict]:
         jobs_list = []
         for job in jobs_reader:
             jobs_list.append(job)
+            
         return jobs_list
 
 
 def get_unique_job_types(path: str) -> List[str]:
-    """Checks all different job types and returns a list of them
+    jobs_list = read(path)
+    jobs_types = []
 
-    Must call `read`
+    for job in jobs_list:
+        if not job["job_type"] in jobs_types:
+            jobs_types.append(job["job_type"])
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    raise NotImplementedError
+    return jobs_types
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
